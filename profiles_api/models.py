@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
-# Create your models here.
+
 
 class UserProfileManager(BaseUserManager):
     """Manager for user profiles """
@@ -32,7 +32,7 @@ class UserProfileManager(BaseUserManager):
 class UserProfile(AbstractBaseUser,PermissionsMixin):
     """ Database Model for users in the system """
     email = models.EmailField(max_length=255, unique=True)
-    name = models.EmailField(max_length=255)
+    name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
